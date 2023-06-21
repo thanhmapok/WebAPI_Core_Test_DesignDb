@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI_Core_Test_DesignDb.Controllers
 {
-    public class HomeController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HomeController : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult ShowNumberInput(int num)
         {
-            return View();
+            int sonay = num + 1;
+            return Ok(sonay);
         }
     }
 }
